@@ -15,11 +15,6 @@ code {
     monospace;
 }
 
-.active {
-  background-color: #25467dff;
-  color: #ffffff;
-}
-
 .nav-button {
   border: none;
   background: #ffffff;
@@ -43,7 +38,7 @@ code {
 }
 
 .nav-button:hover {
-  background-color: #25467dff;
+  background-color: #f85f36;
   color: #ffffff;
 }
 
@@ -71,4 +66,9 @@ code {
 .search-button:hover {
   background: #ffffff;
   color: #182F5D;
+}
+
+.active {
+  background-color: #25467dff;
+  color: #ffffff;
 }
