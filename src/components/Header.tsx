@@ -5,7 +5,7 @@ import { StyledSection, Wrapper, StyledParagraphSpan, StyledParagraphSpanXSmall,
 export const Header = () => {
   return (
     <Wrapper>
-      <StyledParagraphA href="https://project-express-api-qsyn7wqw7a-lz.a.run.app/artists" target="_blank" aria-label="artist API">
+      <StyledParagraphA>
         <StyledParagraphSpan>FEMALE ARTISTS</StyledParagraphSpan>
         in the MoMA collection
         <StyledParagraphSpanXSmall>(the Museum of Modern Art, New York)</StyledParagraphSpanXSmall>
