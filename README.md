@@ -8,5 +8,5 @@ A React project showcasing and fetching all data from my express API project. Or
 
 ## The problem
 
-<img width="300" alt="Female Artists Demo" src="./code/public/images/demo1.png">
-<img width="300" alt="Female Artists Demo" src="./code/public/images/demo2.png">
+<img width="300" alt="Female Artists Demo" src="images/demo1.png">
+<img width="300" alt="Female Artists Demo" src="images/demo2.png">
