@@ -6,7 +6,14 @@
 
 A React project showcasing and fetching all data from my express API project. Originally created with JavaScript, now migrated to TypeScript. 
 
-## The problem
+## Backend repository
+
+https://github.com/Vera-Sjunnesson/project-express-api
+
+## View it live
+
+- Frontend: https://female-artists-express-api.netlify.app/
+- Backend: https://project-express-api-qsyn7wqw7a-lz.a.run.app/
 
 <img width="200" alt="Female Artists Demo" src="./public/images/demo1.png">
 <img width="500" alt="Female Artists Demo" src="./public/images/demo2.png">
