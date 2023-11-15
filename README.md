@@ -1,19 +1,12 @@
-# Technigo React Starter App
+# Female Artists in the Moma Collection
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
+A React project showcasing and fetching all data from my express API project. Originally created with JavaScript, now migrated to TypeScript. 
 
-## Usage
+## The problem
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
-
-Alternatively, if you don't want a new git repo on your account;
-
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+<img width="300" alt="Female Artists Demo" src="./code/public/images/demo1.png">
+<img width="300" alt="Female Artists Demo" src="./code/public/images/demo2.png">
