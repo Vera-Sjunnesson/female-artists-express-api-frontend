@@ -9,8 +9,6 @@ import { ArtistNationality } from './components/ArtistNationality';
 
 export const App = () => {
   return (
-    <div>
-      <h1 className="text-100-red">Hej hej</h1>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -21,6 +19,5 @@ export const App = () => {
           <Route path="/nationality/:nationality" element={<ArtistNationality />} />
         </Routes>
       </BrowserRouter>
-    </div>
   )
 }
