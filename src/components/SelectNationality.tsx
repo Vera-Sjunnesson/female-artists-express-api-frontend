@@ -10,7 +10,7 @@ export const SelectNationality = () => {
     <InputForm
       id="nationality"
       value={nationality}
-      type="select"
+      type="text"
       setValue={setNationality}
       to={`/nationality/${nationality}`} />
     <Animation />
