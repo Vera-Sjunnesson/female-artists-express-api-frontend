@@ -4,7 +4,27 @@
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-A React project showcasing and fetching all data from my express API project. Originally created with JavaScript, now migrated to TypeScript. 
+A React project showcasing and fetching all data from my express API project. Originally created with JavaScript, now migrated to TypeScript.
+
+## Functionality
+
+The user can:
+
+- See all female artists in the datset
+- Search for artists based on nationality
+- Select artist bsaed on year they were born after
+- Search all artists in the dataset
+- Click on an artist to see more details
+
+## Technology and tools
+
+- React
+- Typescript
+- Styled components
+- React Router
+- Postman
+- Express.js
+- REST API
 
 ## Backend repository
 

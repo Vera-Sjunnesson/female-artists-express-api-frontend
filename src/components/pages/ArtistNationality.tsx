@@ -9,6 +9,7 @@ interface NationalityList {
   Name: string;
 }
 
+// Component fetching and displaying artist list based on nationality
 export const ArtistNationality: React.FC = () => {
   const [list, setList] = useState<NationalityList[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -16,22 +17,27 @@ export const ArtistNationality: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-
+    // Function to fetch artist list based on nationality
     const fetchArtistNationality = async () => {
 
       try {
         if (!nationality) {
           throw new Error('Nationality is undefined');
         }
+
         const nationalityUrl = NATIONALITY_URL(nationality)
+
         if(!nationalityUrl) {
           throw new Error('Failed to fetch nationality');
         }
+
         const response = await fetch(nationalityUrl);
         const data = await response.json();
         setList(data.body.artist);
+
       } catch (error) {
         console.error(error);
+
       } finally {
         setTimeout(() => setLoading(false), 1000);
       }
@@ -40,10 +46,10 @@ export const ArtistNationality: React.FC = () => {
   }, [nationality]);
 
   if (loading) {
-    return <Loader />;
+    return <Loader />; // Display loader while data is being fetched
   }
 
   return (
-    <ArtistList list={list} path={`nationality/${nationality}`}/>
+    <ArtistList list={list} path={`nationality/${nationality}`}/> // Rendering artist list (based on nationality) component
   );
 };

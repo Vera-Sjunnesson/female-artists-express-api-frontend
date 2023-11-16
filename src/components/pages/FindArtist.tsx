@@ -11,6 +11,7 @@ interface Details {
   Death_Year: string;
 }
 
+// Component to display artist details based on name
 export const FindArtist = () => {
   const [details, setDetails] = useState<Details>({
     Name: '',
@@ -21,19 +22,25 @@ export const FindArtist = () => {
   const { name } = useParams<{ name?: string }>();
 
   useEffect(() => {
+    // Function to fetch artist details
     const fetchArtistDetails = async () => {
 
       try {
+
         if (!name) {
           throw new Error('Name is undefined');
         }
+
         const nameUrl = NAME_URL(name)
+
         if(!nameUrl) {
           throw new Error('Failed to fetch artist by name');
         }
+
         const response = await fetch(nameUrl);
         const data = await response.json();
         setDetails(data.body.artist);
+
       } catch (error) {
         console.error(error);
       }
@@ -42,6 +49,6 @@ export const FindArtist = () => {
   }, [name]);
 
   return (
-      <ArtistDetailsList details={details} />
+      <ArtistDetailsList details={details} /> // Rendering artist details list component
   )
 }
