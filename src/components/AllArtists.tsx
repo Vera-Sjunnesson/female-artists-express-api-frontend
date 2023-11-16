@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Loader } from './Loader';
-import { StyledParagraphSpanSmall } from './Styling';
+import { Loader } from './lib/Loader';
+import { ArtistList } from './lib/Lists';
 
 interface Artist {
   Artist_ID: string;
@@ -44,17 +43,6 @@ export const AllArtists: React.FC = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0 10px', padding: '20px', justifyContent: 'center' }}>
-      {list.map((artist) => (
-        <Link
-          style={{ textDecoration: 'none' }}
-          key={artist.Artist_ID}
-          to={`/artists/${artist.Artist_ID}`}>
-            <StyledParagraphSpanSmall>
-              {artist.Name}
-            </StyledParagraphSpanSmall>
-        </Link>
-      ))}
-    </div>
+    <ArtistList list={list} />
   );
 };

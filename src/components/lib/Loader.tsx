@@ -1,6 +1,6 @@
 import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { LottieContainer } from './Styling';
+import { LottieContainer } from '../Styling';
 
 export const Loader = () => {
   return (
