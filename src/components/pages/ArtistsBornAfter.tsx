@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import { Loader } from './lib/Loader'; 
-import { StyledParagraphSpanSmall } from './Styling';
-import { BORN_AFTER_URL } from '../utils/urls';
+import { useParams } from 'react-router-dom';
+import { Loader } from '../lib/Loader';
+import { BORN_AFTER_URL } from '../../utils/urls';
+import { ArtistList } from '../lib/Lists';
 
 interface BornAfterList {
   Artist_ID: string;
@@ -33,7 +33,7 @@ export const ArtistsBornAfter: React.FC  = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => setLoading(false), 1500);
+        setTimeout(() => setLoading(false), 1000);
       }
     };
     fetchArtistBornAfter();
@@ -44,17 +44,6 @@ export const ArtistsBornAfter: React.FC  = () => {
   }
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0 10px', padding: '20px', justifyContent: 'center' }}>
-      {list.map((artist) => (
-        <Link
-          style={{ textDecoration: 'none' }}
-          key={artist.Artist_ID}
-          to={`/artists/${artist.Artist_ID}`}>
-            <StyledParagraphSpanSmall>
-              {artist.Name}
-            </StyledParagraphSpanSmall>
-        </Link>
-      ))}
-    </div>
+    <ArtistList list={list}  path={`born-after/${year}`} />
   );
 };

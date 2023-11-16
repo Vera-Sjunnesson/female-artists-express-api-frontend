@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Details, StyledParagraphText } from './Styling';
-import { SINGLE_ARTIST_URL } from '../utils/urls';
+import { SINGLE_ARTIST_URL } from '../../utils/urls';
+import { ArtistDetailsList } from '../lib/Lists';
 
+// Interface defining the structure of artist details
 interface Details {
   Name: string;
   Nationality: string;
@@ -10,6 +11,7 @@ interface Details {
   Death_Year: string;
 }
 
+// Component fetching and displaying artist details
 export const ArtistDetails: React.FC = () => {
   const [details, setDetails] = useState<Details>({
     Name: '',
@@ -21,34 +23,34 @@ export const ArtistDetails: React.FC = () => {
   const { id } = useParams<{ id?: string }>();
   
   useEffect(() => {
+    // Function to fetch artist details
     const fetchArtistDestails = async () => {
 
       try {
+        // Checking if the artist ID is available
         if (id === undefined) {
           throw new Error('Artist ID is undefined');
         }
+
         const url = SINGLE_ARTIST_URL(id);
+        
         if(!url) {
           throw new Error('Failed to fetch artist details');
         }
+
         const response = await fetch(url);
         const data = await response.json();
         setDetails(data.body.artistsMoma);
+
       } catch (error) {
         console.error(error);
       }
-    }
+    };
 
-    fetchArtistDestails();
-    
+  fetchArtistDestails();
   }, []);
 
   return (
-    <Details>
-      <StyledParagraphText>Name: {details.Name}</StyledParagraphText>
-      <StyledParagraphText>Nationality: {details.Nationality}</StyledParagraphText>
-      <StyledParagraphText>Birth Year: {details.Birth_Year}</StyledParagraphText>
-      <StyledParagraphText>Death Year: {details.Death_Year}</StyledParagraphText>
-    </Details>
+    <ArtistDetailsList details={details}/> // Rendering artist details list component
   )
 }

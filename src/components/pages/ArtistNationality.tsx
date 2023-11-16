@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader } from './lib/Loader';
-import { NATIONALITY_URL } from '../utils/urls';
-import { ArtistList } from './lib/Lists';
+import { Loader } from '../lib/Loader';
+import { NATIONALITY_URL } from '../../utils/urls';
+import { ArtistList } from '../lib/Lists';
 
 interface NationalityList {
   Artist_ID: string;
@@ -33,7 +33,7 @@ export const ArtistNationality: React.FC = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setTimeout(() => setLoading(false), 1500);
+        setTimeout(() => setLoading(false), 1000);
       }
     };
     fetchArtistNationality();
@@ -44,8 +44,6 @@ export const ArtistNationality: React.FC = () => {
   }
 
   return (
-    <div>
-      <ArtistList list={list} />
-    </div>
+    <ArtistList list={list} path={`nationality/${nationality}`}/>
   );
 };

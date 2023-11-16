@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { Loader } from './lib/Loader';
-import { ArtistList } from './lib/Lists';
+import { Loader } from '../lib/Loader';
+import { ArtistList } from '../lib/Lists';
 
 interface Artist {
   Artist_ID: string;
   Name: string;
 }
 
+// Component to display a list of all artists
 export const AllArtists: React.FC = () => {
-  const [list, setList] = useState<Artist[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [list, setList] = useState<Artist[]>([]); // State to hold the list of artists
+  const [loading, setLoading] = useState<boolean>(false); // State to manage loading status
 
   useEffect(() => {
     setLoading(true);
-
+    // Function to fetch the list of artists
     const fetchArtists = async () => {
       try {
         const url = process.env.REACT_APP_FEMALE_ARTISTS_URL
-        console.log('URL:', url);
 
         if (!url) {
           throw new Error('Failed to fetch female artists');
@@ -27,22 +27,23 @@ export const AllArtists: React.FC = () => {
         console.log('Response:', response);
         const data = await response.json();
         setList(data.body.artistsMoma);
-        console.log(list)
+ 
       } catch (error) {
         console.error(error);
+
       } finally {
-        setTimeout(() => setLoading(false), 1500);
+        setTimeout(() => setLoading(false), 1000);
       }
     };
 
-    fetchArtists();
+  fetchArtists();
   }, []);
 
   if (loading) {
-    return <Loader />;
+    return <Loader />; // Display loader while data is being fetched
   }
 
   return (
-    <ArtistList list={list} />
+    <ArtistList list={list} path="artists" /> // Render the ArtistList component with the retrieved list of artists
   );
 };

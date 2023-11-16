@@ -41,6 +41,12 @@ export const StyledParagraphText = styled.p`
  gap: 10px;
 `;
 
+export const Details = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 interface Artist {
   Artist_ID: string;
   Name: string;
@@ -48,9 +54,10 @@ interface Artist {
 
 interface ListProps {
   list: Artist[];
+  path: string;
 }
 
-export const ArtistList = ({ list }: ListProps) => {
+export const ArtistList: React.FC<ListProps> = ({ list, path }) => {
   return (
     <StyledSection>
       {list.length === 0
@@ -59,12 +66,38 @@ export const ArtistList = ({ list }: ListProps) => {
         <Link
           style={{ textDecoration: 'none' }}
           key={artist.Artist_ID}
-          to={`/artists/${artist.Artist_ID}`}>
+          to={`/${path}/${artist.Artist_ID}`}>
           <StyledParagraphSmall>
             {artist.Name}
           </StyledParagraphSmall>
         </Link>
       ))}
     </StyledSection>
+  );
+};
+
+interface ArtistDetailsProps {
+  details: {
+    Name: string;
+    Nationality: string;
+    Birth_Year: string;
+    Death_Year: string;
+  };
+}
+
+export const ArtistDetailsList = ({ details }: ArtistDetailsProps) => {
+  return (
+    <Details>
+    {!details ? (
+      <StyledParagraphText>Sorry, artist not found</StyledParagraphText>
+    ) : (
+      <>
+        <StyledParagraphText>Name: {details?.Name}</StyledParagraphText>
+        <StyledParagraphText>Nationality: {details?.Nationality ? details?.Nationality : "No data" }</StyledParagraphText>
+        <StyledParagraphText>Birth Year: {details?.Birth_Year ? details?.Birth_Year : "No data" }</StyledParagraphText>
+        <StyledParagraphText>Death Year: {details?.Death_Year ? details?.Death_Year : "-" }</StyledParagraphText>
+      </>
+    )}
+  </Details>
   );
 };

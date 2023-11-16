@@ -45,6 +45,11 @@ export const NavLinkeStyled = styled(NavLink)`
     background-color: #25467dff;
     color: #ffffff;
   }
+
+  &.active:hover {
+    background-color: #f85f36;
+    color: #ffffff; 
+  }
 `
 
 export const SearchButtonStyled = styled(Link)`
@@ -93,7 +98,7 @@ export const NavBar = () => {
       <NavButton to="/artists" linkName="ALL ARTISTS"/>
       <NavButton to="/nationality" linkName="NATIONALITY"/>
       <NavButton to="/born-after" linkName="BIRTH YEAR"/>
-      <NavButton to="artists/name" linkName="SEARCH ARTIST"/>
+      <NavButton to="/artist" linkName="SEARCH ARTIST"/>
   </StyledSection>
   )
 }

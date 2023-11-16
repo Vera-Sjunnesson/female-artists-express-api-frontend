@@ -1,6 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { LottieContainer } from '../Styling';
+
+export const LottieContainer = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+
+  & > div {
+    width: 90vw;
+
+  @media (min-width: 1024px) {
+    width: 50vw;
+  }
+  }
+`;
 
 export const Loader = () => {
   return (
